@@ -38,6 +38,61 @@ else if ($nr_1> $nr_2){
 else{
     echo"false";
 }
+echo "<br>";
+$beg = 18;
+switch($beg){
+ case ($beg >=0 && $beg <=18 ):
+ echo "Je nje minor <br>";
+ break;
+ case ($beg >=18 && $beg <=25 ):
+ echo "Je nje adult i ri<br>";
+ break;
+ case ($beg >25  ):
+ echo "Je nje adult <br>";
+ break;
+ default:
+ echo"invalid <br>";
+ break;
+}
+echo "<br>";
+$day = "monday";
+switch ($day){
+  
+case 'monday':
+echo"its monday";
+break; 
+case 'tuesday':
+echo"its tuesday";
+break; 
+case 'wednsday':
+echo"its wednsday";
+break; 
+case 'thursday':
+echo"its thursday";
+break; 
+case 'friday':
+echo"its friday";
+break; 
+case 'saturday':
+echo"its saturday";
+break; 
+case 'sunday':
+echo"its sunday";
+break; 
+}
+echo "<br>";
+$x = 1;
+while($x <=5){
+    echo ("the number is: $x <br>");
+    $x++;
+}
+echo "<br>";
+$y = 1;
+do{
+echo " the number is: $y <br>";
+$y++;
+}while ($y<=5 );
+
 
 
 ?>
