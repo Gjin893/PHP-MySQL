@@ -31,13 +31,13 @@
             <div class="row">
               <div class="col-md-6 mb-4">
                 <div data-mdb-input-init class="form-outline">
-                  <input type="text" id="form3Example1" class="form-control" />
+                  <input type="text" id="form3Example1" class="form-control" First name = "fname"/>
                   <label class="form-label" for="form3Example1">First name</label>
                 </div>
               </div>
               <div class="col-md-6 mb-4">
                 <div data-mdb-input-init class="form-outline">
-                  <input type="text" id="form3Example2" class="form-control" />
+                  <input type="text" id="form3Example2" class="form-control" Last name = "lname" />
                   <label class="form-label" for="form3Example2">Last name</label>
                 </div>
               </div>
@@ -45,13 +45,13 @@
 
             <!-- Email input -->
             <div data-mdb-input-init class="form-outline mb-4">
-              <input type="email" id="form3Example3" class="form-control" />
-              <label class="form-label" for="form3Example3">Email address</label>
+              <input type="email" id="form3Example3" class="form-control" email ="email" />
+              <label class="form-label" for="form3Example3">Email </label>
             </div>
 
             <!-- Password input -->
             <div data-mdb-input-init class="form-outline mb-4">
-              <input type="password" id="form3Example4" class="form-control" />
+              <input type="password" id="form3Example4" class="form-control" password ="psw" />
               <label class="form-label" for="form3Example4">Password</label>
             </div>
 
@@ -98,3 +98,45 @@
     
 </body>
 </html>
+<?php
+
+	include_once('config.php');	
+
+
+	if(isset($_POST['submit']))
+	{
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+        $password = $_POST['password'];
+        $repeat_password = $_POST['repeat password'];
+
+		
+        $sql = "insert into users (name, email, password, repeat password) values (:name, :email, :password, :repeat password)";
+        $sqlQuery = $conn->prepare($sql);
+    
+        $sqlQuery->bindParam(':name', $name); 
+        $sqlQuery->bindParam(':last name', $last); 
+        $sqlQuery->bindParam(':password', $password);
+           $sqlQuery->bindParam(': repeat password', $password);
+
+        $sqlQuery->execute();
+
+        echo "Data saved successfully ...";
+	}
+?>
+
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <a href="dashboard.php">Dashboard</a>
+        <form action="llogin.php" method="POST">
+            <input type="text" name="name" placeholder="Name"></br>
+            <input type="text" name="last name" placeholder="last name"></br>
+            <input type="email" name="email" placeholder="email"></br>
+            <input type="email" name="password" placeholder="password"></br>
+            <button type="submit" name="submit">Sign up</button>
+        </form>
+
+    </body>
+</html

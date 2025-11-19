@@ -6,24 +6,22 @@
 	if(isset($_POST['submit']))
 	{
 		$name = $_POST['name'];
+		$surname = $_POST['lastame'];
 		$email = $_POST['email'];
         $password = $_POST['password'];
-        		$repeat_password = $_POST['Repeat password'];
 
 		
-        $sql = "insert into users (name, Repeat password, email) values (:name,  :email, :password, :Repeat password)";
+        $sql = "insert into users (name, last name, email, password) values (:name, :last name, :email, :password)";
         $sqlQuery = $conn->prepare($sql);
     
         $sqlQuery->bindParam(':name', $name); 
+        $sqlQuery->bindParam(':surname', $last_name); 
         $sqlQuery->bindParam(':email', $email);
           $sqlQuery->bindParam(':password', $password);
-           $sqlQuery->bindParam(':Repeat password', $repeat_password); 
            
 
         $sqlQuery->execute();
 
-        echo "You have signee up";
+        echo "You have logged in";
 	}
 ?>
-
-
